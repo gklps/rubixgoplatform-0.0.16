@@ -270,7 +270,7 @@ func (c *Core) syncTokenChainFrom(p *ipfsport.Peer, pblkID string, token string,
 
 	var err error
 	blk := c.w.GetLatestTokenBlock(token, tokenType)
-	log.Println("block to sync", blk)
+	//log.Println("block to sync", blk)
 	blkID := ""
 	if blk != nil {
 		blkID, err = blk.GetBlockID(token)
@@ -312,7 +312,7 @@ func (c *Core) syncTokenChainFrom(p *ipfsport.Peer, pblkID string, token string,
 				c.log.Error("Failed to add token chain block, invalid block, sync failed", "err", err)
 				return fmt.Errorf("failed to add token chain block, invalid block, sync failed")
 			}
-			log.Println("Block to be added : ", blk)
+			//log.Println("Block to be added : ", blk)
 			err = c.w.AddTokenBlock(token, blk)
 			if err != nil {
 				c.log.Error("Failed to add token chain block, syncing failed", "err", err)
